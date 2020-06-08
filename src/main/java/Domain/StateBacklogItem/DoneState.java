@@ -19,6 +19,7 @@ public class DoneState implements BacklogItemState {
     @Override
     public void initializeState() {
         backlogItem.setBacklogItemState(backlogItem.getToDoState());
+        backlogItem.setCompleted(false);
         NotificationPublisher.getNotificationPublisher().notifyScrumMaster("Backlog item " + backlogItem.getTitle() + " is moved from 'done' to 'to-do'");
     }
 

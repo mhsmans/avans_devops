@@ -1,6 +1,7 @@
 package Domain.StateBacklogItem;
 
 import Domain.Activity;
+import Domain.DiscussionThread;
 import Domain.Observer.Member;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ public class BacklogItem {
     private String description;
     private Member assignedTo;
     private ArrayList<Activity> activities;
+    private boolean completed;
 
     private BacklogItemState toDoState, doingState, doneState, currentState;
 
@@ -18,6 +20,7 @@ public class BacklogItem {
         this.title = title;
         this.description = description;
         this.activities = new ArrayList<>();
+        completed = false;
 
         toDoState = new ToDoState(this);
         doingState = new DoingState(this);
@@ -79,5 +82,21 @@ public class BacklogItem {
 
     public ArrayList<Activity> getActivities() {
         return activities;
+    }
+
+    public Member getAssignedTo() {
+        return assignedTo;
+    }
+
+    public BacklogItemState getCurrentState() {
+        return currentState;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }

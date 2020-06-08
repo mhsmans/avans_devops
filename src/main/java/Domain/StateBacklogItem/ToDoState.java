@@ -12,7 +12,11 @@ public class ToDoState implements BacklogItemState {
 
     @Override
     public void nextState() {
-        backlogItem.setBacklogItemState(backlogItem.getDoingState());
+        if (backlogItem.getAssignedTo() != null) {
+            backlogItem.setBacklogItemState(backlogItem.getDoingState());
+        } else {
+            System.err.println("backlog item needs to be assigned to project member first");
+        }
     }
 
     @Override

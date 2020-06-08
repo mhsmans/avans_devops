@@ -14,6 +14,7 @@ public class DoingState implements BacklogItemState{
     public void nextState() {
         if (backlogItem.activitiesCompleted()) {
             backlogItem.setBacklogItemState(backlogItem.getDoneState());
+            backlogItem.setCompleted(true);
         } else {
             System.err.println("not all activities are completed");
         }

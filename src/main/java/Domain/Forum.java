@@ -14,7 +14,10 @@ public class Forum {
 
     public void addDiscussionThread(BacklogItem item, String title) {
         DiscussionThread discussionThread = new DiscussionThread(title, item);
-        if (!discussionThreads.contains(discussionThread)) {
+
+        if (item.isCompleted()) {
+            System.err.println("unable to add discussion thread; item is closed");
+        } else if (!discussionThreads.contains(discussionThread)) {
             discussionThreads.add(discussionThread);
         } else {
             System.err.println("discussion thread already exists");
