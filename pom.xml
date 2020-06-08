@@ -24,10 +24,7 @@
     </dependencies>
 
     <properties>
-        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-        <sonar.surefire.reportsPath>${project.build.directory}/surefire-reports</sonar.surefire.reportsPath>
-        <sonar.coverage.jacoco.xmlReportPaths>${project.reporting.outputDirectory}/jacoco-ut/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
-        <sonar.projectVersion>${project.version}</sonar.projectVersion>
+        <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
         <!-- Enable language to disable other language analysis -->
         <sonar.language>java</sonar.language>
         <sonar.exclusions>src/main/resources/**</sonar.exclusions>
