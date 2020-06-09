@@ -8,9 +8,13 @@ public class Comment {
     private Member creator;
     private String body;
 
-    public Comment(String id, Member creator, String body) {
+    private Comment(String id, Member creator, String body) {
         this.id = id;
         this.creator = creator;
         this.body = body;
+    }
+
+    public Comment(Member creator, String body) {
+        this("unique generated id", creator, body);
     }
 }
