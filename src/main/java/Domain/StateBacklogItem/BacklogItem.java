@@ -54,14 +54,14 @@ public class BacklogItem {
     }
 
     public boolean activitiesCompleted() {
-        boolean completed = true;
+        boolean isCompleted = true;
 
         for (Activity activity : activities) {
             if (!activity.getCompleted()) {
-                completed = false;
+                isCompleted = false;
             }
         }
-        return completed;
+        return isCompleted;
     }
 
     public BacklogItemState getToDoState() {
