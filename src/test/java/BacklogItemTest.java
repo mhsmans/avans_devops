@@ -46,14 +46,17 @@ public class BacklogItemTest {
     }
 
     @Test
-    void backlogItemNeedsAssignedMemberToProgressTest() {
+    void backlogItemProgressTest() {
         BacklogItemState doingState = new DoingState(backlogItem);
-
-        backlogItem.nextState();
-        Assertions.assertTrue(systemErrContent.toString().contains("backlog item needs to be assigned to project member first"));
         backlogItem.assignMember(member);
         backlogItem.nextState();
         Assertions.assertEquals(doingState.getClass(), backlogItem.getCurrentState().getClass());
+    }
+
+    @Test
+    void backlogItemCannotProgressWithoutAssignedMemberTest() {
+        backlogItem.nextState();
+        Assertions.assertTrue(systemErrContent.toString().contains("backlog item needs to be assigned to project member first"));
     }
 
     @Test
@@ -91,6 +94,15 @@ public class BacklogItemTest {
         activityB.markComplete();
         backlogItem.nextState();
         Assertions.assertTrue(backlogItem.isCompleted());
+    }
+
+    @Test
+    void backlogItemCannotProgressToNextStateFromDoneTest() {
+        backlogItem.assignMember(member);
+        backlogItem.nextState();
+        backlogItem.nextState();
+        backlogItem.nextState();
+        Assertions.assertTrue(systemErrContent.toString().contains("backlog item already is in its final state"));
     }
 
     @Test
