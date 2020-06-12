@@ -1,6 +1,7 @@
 package Domain.Observer;
 
 import Domain.Decorator.EmailDecorator;
+import Domain.Decorator.NotificationLogger;
 import Domain.Decorator.Notifier;
 import Domain.Decorator.SlackDecorator;
 import Domain.Role;
@@ -33,7 +34,7 @@ public class Member implements NotificationSubscriber {
 
     // set communication channels based on member preference
     public void setNotifier() {
-        notifier = new Notifier();
+        notifier = new NotificationLogger(name);
         if (emailEnabled) {
             notifier = new EmailDecorator(notifier, email);
         }

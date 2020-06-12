@@ -10,15 +10,13 @@ public class Project {
     private Team team;
     private ProductBacklog productBacklog;
     private ArrayList<Sprint> sprints;
-    private ArrayList<Repository> repositories;
     private Forum forum;
 
-    public Project(String title, Team team, ProductBacklog productBacklog, ArrayList<Sprint> sprints, ArrayList<Repository> repositories, Forum forum) {
+    public Project(String title, Team team, ProductBacklog productBacklog, ArrayList<Sprint> sprints, Forum forum) {
         this.title = title;
         this.team = team;
         this.productBacklog = productBacklog;
         this.sprints = sprints;
-        this.repositories = repositories;
         this.forum = forum;
     }
 }

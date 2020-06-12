@@ -1,6 +1,6 @@
 package Domain.Decorator;
 
-public abstract class MessageDecorator extends Notifier {
+public abstract class MessageDecorator implements Notifier {
 
     private Notifier wrappee;
 
