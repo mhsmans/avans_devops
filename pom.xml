@@ -23,6 +23,27 @@
         </dependency>
     </dependencies>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!-- Sonar -->
+        <sonar.jacoco.reportPath>${project.basedir}/target/jacoco/jacoco-ut.exec</sonar.jacoco.reportPath>
+        <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/jacoco/jacoco-ut/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.language>java</sonar.language>
+        <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.inclusions>src/main/java, src/test/java</sonar.inclusions>
+
+        <!-- Organization and project keys are displayed in the right sidebar of the project homepage -->
+        <sonar.organization>mhsmans</sonar.organization>
+        <sonar.projectKey>org.avans.soa3:soa3_avans_devops</sonar.projectKey>
+        <sonar.login>3a11bb847676764c3acf9ae71ab00852de6900b9</sonar.login>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
